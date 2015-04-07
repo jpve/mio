@@ -263,7 +263,7 @@
 <span class='kw'>use</span> {<span class='ident'>NonBlock</span>};
 <span class='kw'>use</span> <span class='ident'>io</span>::{<span class='self'>self</span>, <span class='ident'>Io</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>net</span>::<span class='ident'>SocketAddr</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::{<span class='ident'>Fd</span>, <span class='ident'>AsRawFd</span>};
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::{<span class='ident'>RawFd</span>, <span class='ident'>AsRawFd</span>};
 
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>tcp</span>;
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>udp</span>;
@@ -386,7 +386,7 @@
     };
 }
 
-<span class='kw'>fn</span> <span class='ident'>socket</span>(<span class='ident'>family</span>: <span class='ident'>nix</span>::<span class='ident'>AddressFamily</span>, <span class='ident'>ty</span>: <span class='ident'>nix</span>::<span class='ident'>SockType</span>, <span class='ident'>nonblock</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Fd</span><span class='op'>&gt;</span> {
+<span class='kw'>fn</span> <span class='ident'>socket</span>(<span class='ident'>family</span>: <span class='ident'>nix</span>::<span class='ident'>AddressFamily</span>, <span class='ident'>ty</span>: <span class='ident'>nix</span>::<span class='ident'>SockType</span>, <span class='ident'>nonblock</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>RawFd</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='ident'>opts</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ident'>nonblock</span> {
         <span class='ident'>nix</span>::<span class='ident'>SOCK_NONBLOCK</span> <span class='op'>|</span> <span class='ident'>nix</span>::<span class='ident'>SOCK_CLOEXEC</span>
     } <span class='kw'>else</span> {
@@ -419,7 +419,7 @@
         .<span class='ident'>map_err</span>(<span class='ident'>io</span>::<span class='ident'>from_nix_error</span>)
 }
 
-<span class='kw'>fn</span> <span class='ident'>accept</span>(<span class='ident'>io</span>: <span class='kw-2'>&amp;</span><span class='ident'>Io</span>, <span class='ident'>nonblock</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Fd</span><span class='op'>&gt;</span> {
+<span class='kw'>fn</span> <span class='ident'>accept</span>(<span class='ident'>io</span>: <span class='kw-2'>&amp;</span><span class='ident'>Io</span>, <span class='ident'>nonblock</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>RawFd</span><span class='op'>&gt;</span> {
     <span class='kw'>let</span> <span class='ident'>opts</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='ident'>nonblock</span> {
         <span class='ident'>nix</span>::<span class='ident'>SOCK_NONBLOCK</span> <span class='op'>|</span> <span class='ident'>nix</span>::<span class='ident'>SOCK_CLOEXEC</span>
     } <span class='kw'>else</span> {

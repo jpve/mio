@@ -555,7 +555,7 @@
     <span class='ident'>mask</span>: <span class='ident'>u64</span>,
 }
 
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Timeout</span> {
     <span class='comment'>// Reference into the timer entry slab</span>
     <span class='ident'>token</span>: <span class='ident'>Token</span>,
@@ -795,7 +795,7 @@
     }
 }
 
-<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>)]</span>
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Copy</span>, <span class='ident'>Clone</span>)]</span>
 <span class='kw'>struct</span> <span class='ident'>EntryLinks</span> {
     <span class='ident'>tick</span>: <span class='ident'>u64</span>,
     <span class='ident'>prev</span>: <span class='ident'>Token</span>,

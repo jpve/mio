@@ -126,7 +126,7 @@
 <span class='kw'>use</span> <span class='ident'>net</span>::{<span class='self'>self</span>, <span class='ident'>nix</span>, <span class='ident'>Socket</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>mem</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>net</span>::<span class='ident'>SocketAddr</span>;
-<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::<span class='ident'>Fd</span>;
+<span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>os</span>::<span class='ident'>unix</span>::<span class='ident'>io</span>::<span class='ident'>RawFd</span>;
 
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>net</span>::<span class='ident'>UdpSocket</span>;
 
@@ -157,7 +157,7 @@
 }
 
 <span class='kw'>impl</span> <span class='ident'>FromFd</span> <span class='kw'>for</span> <span class='ident'>UdpSocket</span> {
-    <span class='kw'>fn</span> <span class='ident'>from_fd</span>(<span class='ident'>fd</span>: <span class='ident'>Fd</span>) <span class='op'>-&gt;</span> <span class='ident'>UdpSocket</span> {
+    <span class='kw'>fn</span> <span class='ident'>from_fd</span>(<span class='ident'>fd</span>: <span class='ident'>RawFd</span>) <span class='op'>-&gt;</span> <span class='ident'>UdpSocket</span> {
         <span class='kw'>unsafe</span> { <span class='ident'>mem</span>::<span class='ident'>transmute</span>(<span class='ident'>Io</span>::<span class='ident'>new</span>(<span class='ident'>fd</span>)) }
     }
 }

@@ -217,6 +217,8 @@
 <span id="175">175</span>
 <span id="176">176</span>
 <span id="177">177</span>
+<span id="178">178</span>
+<span id="179">179</span>
 </pre><pre class='rust '>
 <span class='doccomment'>//! A fast, low-level IO library for Rust focusing on non-blocking APIs, event</span>
 <span class='doccomment'>//! notification, and other useful utilities for building high performance IO</span>
@@ -299,15 +301,17 @@
 <span class='comment'>// mio is still in rapid development</span>
 <span class='attribute'>#<span class='op'>!</span>[<span class='ident'>unstable</span>]</span>
 
-<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>feature</span>(<span class='ident'>alloc</span>, <span class='ident'>convert</span>, <span class='ident'>io</span>, <span class='ident'>io_ext</span>, <span class='ident'>unsafe_destructor</span>)]</span>
+<span class='attribute'>#<span class='op'>!</span>[<span class='ident'>deny</span>(<span class='ident'>warnings</span>)]</span>
 
-<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>alloc</span>;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>bytes</span>;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>nix</span>;
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>time</span>;
 
 <span class='attribute'>#[<span class='ident'>macro_use</span>]</span>
 <span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>log</span>;
+
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>test</span>)]</span>
+<span class='kw'>extern</span> <span class='kw'>crate</span> <span class='ident'>env_logger</span>;
 
 <span class='kw'>pub</span> <span class='kw'>mod</span> <span class='ident'>util</span>;
 
