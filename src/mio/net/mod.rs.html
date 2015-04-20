@@ -301,17 +301,17 @@
     }
 
     <span class='kw'>fn</span> <span class='ident'>set_reuseaddr</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>val</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
-        <span class='ident'>nix</span>::<span class='ident'>setsockopt</span>(<span class='self'>self</span>.<span class='ident'>as_raw_fd</span>(), <span class='ident'>nix</span>::<span class='ident'>SockLevel</span>::<span class='ident'>Socket</span>, <span class='ident'>nix</span>::<span class='ident'>sockopt</span>::<span class='ident'>ReuseAddr</span>, <span class='ident'>val</span>)
+        <span class='ident'>nix</span>::<span class='ident'>setsockopt</span>(<span class='self'>self</span>.<span class='ident'>as_raw_fd</span>(), <span class='ident'>nix</span>::<span class='ident'>SockLevel</span>::<span class='ident'>Socket</span>, <span class='ident'>nix</span>::<span class='ident'>sockopt</span>::<span class='ident'>ReuseAddr</span>, <span class='kw-2'>&amp;</span><span class='ident'>val</span>)
             .<span class='ident'>map_err</span>(<span class='ident'>io</span>::<span class='ident'>from_nix_error</span>)
     }
 
     <span class='kw'>fn</span> <span class='ident'>set_reuseport</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>val</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
-        <span class='ident'>nix</span>::<span class='ident'>setsockopt</span>(<span class='self'>self</span>.<span class='ident'>as_raw_fd</span>(), <span class='ident'>nix</span>::<span class='ident'>SockLevel</span>::<span class='ident'>Socket</span>, <span class='ident'>nix</span>::<span class='ident'>sockopt</span>::<span class='ident'>ReusePort</span>, <span class='ident'>val</span>)
+        <span class='ident'>nix</span>::<span class='ident'>setsockopt</span>(<span class='self'>self</span>.<span class='ident'>as_raw_fd</span>(), <span class='ident'>nix</span>::<span class='ident'>SockLevel</span>::<span class='ident'>Socket</span>, <span class='ident'>nix</span>::<span class='ident'>sockopt</span>::<span class='ident'>ReusePort</span>, <span class='kw-2'>&amp;</span><span class='ident'>val</span>)
             .<span class='ident'>map_err</span>(<span class='ident'>io</span>::<span class='ident'>from_nix_error</span>)
     }
 
     <span class='kw'>fn</span> <span class='ident'>set_tcp_nodelay</span>(<span class='kw-2'>&amp;</span><span class='self'>self</span>, <span class='ident'>val</span>: <span class='ident'>bool</span>) <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span>()<span class='op'>&gt;</span> {
-        <span class='ident'>nix</span>::<span class='ident'>setsockopt</span>(<span class='self'>self</span>.<span class='ident'>as_raw_fd</span>(), <span class='ident'>nix</span>::<span class='ident'>SockLevel</span>::<span class='ident'>Tcp</span>, <span class='ident'>nix</span>::<span class='ident'>sockopt</span>::<span class='ident'>TcpNoDelay</span>, <span class='ident'>val</span>)
+        <span class='ident'>nix</span>::<span class='ident'>setsockopt</span>(<span class='self'>self</span>.<span class='ident'>as_raw_fd</span>(), <span class='ident'>nix</span>::<span class='ident'>SockLevel</span>::<span class='ident'>Tcp</span>, <span class='ident'>nix</span>::<span class='ident'>sockopt</span>::<span class='ident'>TcpNoDelay</span>, <span class='kw-2'>&amp;</span><span class='ident'>val</span>)
             .<span class='ident'>map_err</span>(<span class='ident'>io</span>::<span class='ident'>from_nix_error</span>)
     }
 
