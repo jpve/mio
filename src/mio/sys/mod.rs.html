@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="API documentation for the Rust `TimerError` struct in crate `mio`.">
-    <meta name="keywords" content="rust, rustlang, rust-lang, TimerError">
+    <meta name="description" content="Source to the Rust file `src/sys/mod.rs`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang">
 
-    <title>mio::TimerError - Rust</title>
+    <title>mod.rs.html -- source</title>
 
-    <link rel="stylesheet" type="text/css" href="../main.css">
+    <link rel="stylesheet" type="text/css" href="../../../main.css">
 
     
     
@@ -26,7 +26,7 @@
 
     <section class="sidebar">
         
-        <p class='location'><a href='index.html'>mio</a></p><script>window.sidebarCurrent = {name: 'TimerError', ty: 'struct', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+        
     </section>
 
     <nav class="sub">
@@ -40,14 +40,19 @@
         </form>
     </nav>
 
-    <section id='main' class="content struct">
-<h1 class='fqn'><span class='in-band'>Struct <a href='index.html'>mio</a>::<wbr><a class='struct' href=''>TimerError</a></span><span class='out-of-band'><span id='render-detail'>
-            <a id="toggle-all-docs" href="#" title="collapse all docs">[&minus;]</a>
-        </span><a id='src-12195' class='srclink' href='../src/mio/timer.rs.html#288-291' title='goto source code'>[src]</a></span></h1>
-<pre class='rust struct'>pub struct TimerError {
-    // some fields omitted
-}</pre><h2 id='implementations'>Trait Implementations</h2><h3 id='derived_implementations'>Derived Implementations </h3><h3 class='impl'><code>impl <a class='trait' href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html' title='core::fmt::Debug'>Debug</a> for <a class='struct' href='../mio/struct.TimerError.html' title='mio::TimerError'>TimerError</a></code></h3><div class='impl-items'><h4 id='method.fmt' class='method'><code>fn <a href='http://doc.rust-lang.org/nightly/core/fmt/trait.Debug.html#method.fmt' class='fnname'>fmt</a>(&amp;self, __arg_0: &amp;mut <a class='struct' href='http://doc.rust-lang.org/nightly/core/fmt/struct.Formatter.html' title='core::fmt::Formatter'>Formatter</a>) -&gt; <a class='type' href='http://doc.rust-lang.org/nightly/core/fmt/type.Result.html' title='core::fmt::Result'>Result</a></code></h4>
-</div></section>
+    <section id='main' class="content source"><pre class="line-numbers"><span id="1">1</span>
+<span id="2">2</span>
+<span id="3">3</span>
+<span id="4">4</span>
+<span id="5">5</span>
+</pre><pre class='rust '>
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>unix</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>unix</span>::{<span class='ident'>Awakener</span>, <span class='ident'>Events</span>, <span class='ident'>Selector</span>};
+
+<span class='attribute'>#[<span class='ident'>cfg</span>(<span class='ident'>unix</span>)]</span>
+<span class='kw'>mod</span> <span class='ident'>unix</span>;
+</pre>
+</section>
     <section id='search' class="content hidden"></section>
 
     <section class="footer"></section>
@@ -86,13 +91,13 @@
     
 
     <script>
-        window.rootPath = "../";
+        window.rootPath = "../../../";
         window.currentCrate = "mio";
         window.playgroundUrl = "";
     </script>
-    <script src="../jquery.js"></script>
-    <script src="../main.js"></script>
+    <script src="../../../jquery.js"></script>
+    <script src="../../../main.js"></script>
     
-    <script async src="../search-index.js"></script>
+    <script async src="../../../search-index.js"></script>
 </body>
 </html>

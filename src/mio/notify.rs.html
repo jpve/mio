@@ -225,7 +225,7 @@
 <span id="183">183</span>
 <span id="184">184</span>
 </pre><pre class='rust '>
-<span class='kw'>use</span> {<span class='ident'>os</span>, <span class='ident'>Evented</span>};
+<span class='kw'>use</span> {<span class='ident'>sys</span>, <span class='ident'>Evented</span>};
 <span class='kw'>use</span> <span class='ident'>util</span>::<span class='ident'>BoundedQueue</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::{<span class='ident'>fmt</span>, <span class='ident'>cmp</span>, <span class='ident'>io</span>};
 <span class='kw'>use</span> <span class='ident'>std</span>::<span class='ident'>sync</span>::<span class='ident'>Arc</span>;
@@ -293,7 +293,7 @@
 <span class='kw'>struct</span> <span class='ident'>NotifyInner</span><span class='op'>&lt;</span><span class='ident'>M</span><span class='op'>&gt;</span> {
     <span class='ident'>state</span>: <span class='ident'>AtomicIsize</span>,
     <span class='ident'>queue</span>: <span class='ident'>BoundedQueue</span><span class='op'>&lt;</span><span class='ident'>M</span><span class='op'>&gt;</span>,
-    <span class='ident'>awaken</span>: <span class='ident'>os</span>::<span class='ident'>Awakener</span>
+    <span class='ident'>awaken</span>: <span class='ident'>sys</span>::<span class='ident'>Awakener</span>
 }
 
 <span class='kw'>impl</span><span class='op'>&lt;</span><span class='ident'>M</span>: <span class='ident'>Send</span><span class='op'>&gt;</span> <span class='ident'>NotifyInner</span><span class='op'>&lt;</span><span class='ident'>M</span><span class='op'>&gt;</span> {
@@ -301,7 +301,7 @@
         <span class='prelude-val'>Ok</span>(<span class='ident'>NotifyInner</span> {
             <span class='ident'>state</span>: <span class='ident'>AtomicIsize</span>::<span class='ident'>new</span>(<span class='number'>0</span>),
             <span class='ident'>queue</span>: <span class='ident'>BoundedQueue</span>::<span class='ident'>with_capacity</span>(<span class='ident'>capacity</span>),
-            <span class='ident'>awaken</span>: <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>os</span>::<span class='ident'>Awakener</span>::<span class='ident'>new</span>())
+            <span class='ident'>awaken</span>: <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>sys</span>::<span class='ident'>Awakener</span>::<span class='ident'>new</span>())
         })
     }
 

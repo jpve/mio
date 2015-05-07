@@ -121,23 +121,21 @@
 <span id="79">79</span>
 <span id="80">80</span>
 <span id="81">81</span>
-<span id="82">82</span>
 </pre><pre class='rust '>
-<span class='kw'>use</span> {<span class='ident'>Evented</span>, <span class='ident'>Token</span>};
+<span class='kw'>use</span> {<span class='ident'>sys</span>, <span class='ident'>Evented</span>, <span class='ident'>Token</span>};
 <span class='kw'>use</span> <span class='ident'>event</span>::{<span class='ident'>Interest</span>, <span class='ident'>IoEvent</span>, <span class='ident'>PollOpt</span>};
-<span class='kw'>use</span> <span class='ident'>os</span>;
 <span class='kw'>use</span> <span class='ident'>std</span>::{<span class='ident'>fmt</span>, <span class='ident'>io</span>};
 
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>Poll</span> {
-    <span class='ident'>selector</span>: <span class='ident'>os</span>::<span class='ident'>Selector</span>,
-    <span class='ident'>events</span>: <span class='ident'>os</span>::<span class='ident'>Events</span>
+    <span class='ident'>selector</span>: <span class='ident'>sys</span>::<span class='ident'>Selector</span>,
+    <span class='ident'>events</span>: <span class='ident'>sys</span>::<span class='ident'>Events</span>
 }
 
 <span class='kw'>impl</span> <span class='ident'>Poll</span> {
     <span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>new</span>() <span class='op'>-&gt;</span> <span class='ident'>io</span>::<span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>Poll</span><span class='op'>&gt;</span> {
         <span class='prelude-val'>Ok</span>(<span class='ident'>Poll</span> {
-            <span class='ident'>selector</span>: <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>os</span>::<span class='ident'>Selector</span>::<span class='ident'>new</span>()),
-            <span class='ident'>events</span>: <span class='ident'>os</span>::<span class='ident'>Events</span>::<span class='ident'>new</span>()
+            <span class='ident'>selector</span>: <span class='macro'>try</span><span class='macro'>!</span>(<span class='ident'>sys</span>::<span class='ident'>Selector</span>::<span class='ident'>new</span>()),
+            <span class='ident'>events</span>: <span class='ident'>sys</span>::<span class='ident'>Events</span>::<span class='ident'>new</span>()
         })
     }
 
@@ -189,7 +187,7 @@
 }
 
 <span class='kw'>pub</span> <span class='kw'>struct</span> <span class='ident'>EventsIterator</span><span class='op'>&lt;</span><span class='lifetime'>&#39;a</span><span class='op'>&gt;</span> {
-    <span class='ident'>events</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>os</span>::<span class='ident'>Events</span>,
+    <span class='ident'>events</span>: <span class='kw-2'>&amp;</span><span class='lifetime'>&#39;a</span> <span class='ident'>sys</span>::<span class='ident'>Events</span>,
     <span class='ident'>index</span>: <span class='ident'>usize</span>
 }
 
