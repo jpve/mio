@@ -14,7 +14,8 @@ deploy:
   secret_access_key:
     secure: blFcl9EMlWIiI+x8LZFWpyIxRZRScKWaftSXluFB0HLgbA1oYYX4lo8GgVYGQZ4kP3iIuL+WAlGvf3iCrAULGy0UOxLgvwOxX8XsgfCZpzF/Bw1G6od+IkPzbpNIgMtkceDhzZEmO+yatbAYCdMF0qq485QJ502inB7aeu1G94w=
   bucket: rustdoc
-  local-dir: /home/travis/build/carllerche/mio/target/doc
+  skip_cleanup: true
+  local-dir: target/doc
   upload-dir: mio/master
   acl: public_read
   on:
